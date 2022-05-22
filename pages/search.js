@@ -6,7 +6,7 @@ import {BsFilter} from 'react-icons/bs';
 import SearchFilters from "../components/SearchFilters";
 import Property from "../components/Property";
 import noresult from '../assets/images/noresult.svg'
-import {fetchApi} from "../utils/fetchAPI"
+import {fetchApi, baseUrl} from "../utils/fetchAPI"
 
 const Search = ({properties}) => {
     const [searchFilters, setSearchFilters] = useState(false);
@@ -32,7 +32,7 @@ const Search = ({properties}) => {
               <Text fontSize="2xl" p="4" fontWeight="bold">
                   Properties {router.query.purpose}
               </Text>
-              <Flex flexWarp="wrap">
+              <Flex flexWrap="wrap">
                   {properties.map((property) => <Property property={property} key={property.id} />)}
               </Flex>
               {properties.length === 0 && (
